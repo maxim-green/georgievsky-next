@@ -1,12 +1,38 @@
 import Layout from '../components/Layout'
+import Link from 'next/link'
+import {Navigation, Autoplay, EffectFade } from 'swiper'
+import {Swiper, SwiperSlide} from 'swiper/react'
 
-const Index = ({paintings}) => {
-    console.log(paintings)
+const Index = ({paintings}) => {// todo: extract carousel to separate component
+    const settings = {
+        modules: [Navigation, Autoplay],
+        navigation: true,
+        autoplay: {delay: 4000},
+        speed: 1000,
+        autoHeight: true,
+        loop: true
+    }
+    const swiperItemStyles = {
+        fontSize: '10px',
+        letterSpacing: '0.14em',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        color: 'rgba(0, 0, 0, 0.6)'
+    }
     return (
         <Layout title={'Home'}>
-            {paintings.map(painting => <div key={painting.id}>
-                <img src={'http://localhost:1337' + painting.photo[0].formats.thumbnail.url} alt=""/>
-            </div>)}
+            <Swiper
+                {...settings}
+            >
+                {paintings.map(painting => <SwiperSlide key={painting.id}>
+                    <div style={swiperItemStyles}>
+                        <img src={'http://localhost:1337' + painting.photo[0].formats.medium.url} alt=""/>
+                        <div style={{marginTop: '30px'}}
+                        ><Link href={`/product/${painting.id}`}><a>See details</a></Link></div>
+                    </div>
+                </SwiperSlide>)}
+            </Swiper>
         </Layout>
     )
 }

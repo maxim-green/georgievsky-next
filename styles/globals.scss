@@ -21,3 +21,29 @@ ul, li {
 * {
   box-sizing: border-box;
 }
+
+.swiper {
+  position: relative;
+  padding: 0 40px;
+  .swiper-button-prev, .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    &::after {
+      display: none;
+    }
+  }
+  .swiper-button-prev {
+    left: 0;
+    background-image: url('../assets/icons/angle-left.svg');
+    background-position: left 50%;
+  }
+  .swiper-button-next {
+    right: 0;
+    background-image: url('../assets/icons/angle-right.svg');
+    background-position: right 50%;
+  }
+}

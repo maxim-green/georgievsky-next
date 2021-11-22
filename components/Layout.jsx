@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import classes from '../styles/AppLayout.module.scss'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 
 const Layout = ({children, title}) => {
     return (
@@ -8,33 +9,24 @@ const Layout = ({children, title}) => {
             <Head>
                 <title>{title} | Georgievsky</title>
             </Head>
-            <Header/>
-            <div className={classes.wrapper}>
-                <Navigation cclassName={classes.navigation}/>
-                <Content>{children}</Content>
-            </div>
+            <Navigation cclassName={classes.navigation}/>
+            <Content>{children}</Content>
         </div>
     )
 }
 
-const Header = () => {
-    return (
-        <header className={classes.header}>
-            <Link href={'/'}><a>Georgievsky</a></Link>
-            <div>EN | RU</div>
-        </header>
-    )
-}
-
 const Navigation = () => {
+    const router = useRouter()
     return (
         <nav className={classes.navigation}>
+            <div className={classes.logo}><Link href={'/'}><a>Georgievsky</a></Link></div>
             <ul>
-                <li><Link href={'/paintings/2021'}><a>2021</a></Link></li>
-                <li><Link href={'/paintings/2020'}><a>2020</a></Link></li>
-                <li><Link href={'/about'}><a>About</a></Link></li>
-                <li><Link href={'/contact'}><a>Contact</a></Link></li>
+                <li><Link href={'/paintings/2021'}><a className={router.asPath === '/paintings/2021' ? classes.active : ''}>2021</a></Link></li>
+                <li><Link href={'/paintings/2020'}><a className={router.asPath === '/paintings/2020' ? classes.active : ''}>2020</a></Link></li>
+                <li><Link href={'/about'}><a className={router.asPath === '/about' ? classes.active : ''}>About</a></Link></li>
+                <li><Link href={'/contact'}><a className={router.asPath === '/contact' ? classes.active : ''}>Contact</a></Link></li>
             </ul>
+            <div className={classes.language}>EN | RU</div>
         </nav>
     )
 }
