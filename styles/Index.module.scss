@@ -1,0 +1,21 @@
+.slideImg {
+  margin-bottom: 30px;
+}
+
+.slideLink {
+  position: relative;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.14em;
+  padding-left: 20px;
+  opacity: .4;
+  transition: .3s;
+  &:hover {
+    opacity: 1;
+  }
+  &::before {
+    position: absolute;
+    content: url('../assets/icons/zoom.svg');
+    left: 0;
+  }
+}

@@ -16,6 +16,7 @@ $sidebar-width: 290px;
   li {
     margin-bottom: 18px;
     font-size: 12px;
+    line-height: 12px;
     letter-spacing: 0.14em;
   }
   a.active {
@@ -35,10 +36,14 @@ $sidebar-width: 290px;
 
 .content {
   margin-left: $sidebar-width;
-  padding: 40px 0;
+  padding: 40px 0 40px 0;
   max-width: calc(100vw - 480px);
 }
 
+.page {
+  display: flex;
+  padding-top: 85px;
+}
 
 
 

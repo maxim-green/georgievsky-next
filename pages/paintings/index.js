@@ -1,15 +1,10 @@
 import Layout from '../../components/Layout'
+import Gallery from '../../components/Gallery'
 
 const Paintings = ({paintings}) => {
     return (
         <Layout title={'Paintings'}>
-            <div>
-                {paintings.map(painting => <div key={painting.id}>
-                    <h1>{painting.title}</h1>
-                    <p>{painting.year}</p>
-                    <img src={'http://localhost:1337' + painting.photo[0].formats.thumbnail.url} alt=""/>
-                </div>)}
-            </div>
+            <Gallery paintings={paintings} columnsNumber={4}/>
         </Layout>
     )
 }

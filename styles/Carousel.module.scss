@@ -1,0 +1,46 @@
+.embla {
+  position: relative;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: scale-down;
+  }
+  &Container {
+    display: flex;
+  }
+  &Slide {
+    position: relative;
+    flex: 0 0 100%;
+  }
+  &SlideContent {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &Prev, &Next {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    opacity: .4;
+    transition: .3s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &Prev {
+    left: 0;
+    background-image: url('../assets/icons/angle-left.svg');
+  }
+  &Next {
+    right: 0;
+    background-image: url('../assets/icons/angle-right.svg');
+  }
+}

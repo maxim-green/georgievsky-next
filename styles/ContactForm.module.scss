@@ -1,0 +1,51 @@
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.08em;
+  color: #999999;
+  margin-bottom: 5px;
+}
+
+.inputText, .inputTextarea {
+  padding: 0 5px;
+  display: block;
+  width: 100%;
+  color: #666666;
+  border: 1px solid #999999;
+  outline: none;
+  &:focus {
+    border: 2px solid black;
+  }
+}
+
+.inputText, .button {
+  height: 32px;
+}
+
+.inputTextarea {
+  height: 96px;
+  resize: none;
+}
+
+.button {
+  width: 100px;
+  color: white;
+  background-color: #666666;
+  border: none;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: .3s;
+  &:hover {
+    background-color: black;
+  }
+}

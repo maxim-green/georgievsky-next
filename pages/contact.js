@@ -1,11 +1,16 @@
 import Layout from '../components/Layout'
+import ContactForm from '../components/ContactForm'
 
 const Contact = ({instagram, email, phone}) => {
     return (
         <Layout title={'Contact'}>
-            <div><b>Instagram: </b><a href={instagram}>@maxgeorgievsky</a></div>
-            <div><b>Instagram: </b><a href={'tel:' + phone}>{phone}</a></div>
-            <div><b>Instagram: </b><a href={'mailto:' + email}>{email}</a></div>
+            <Layout.Page>
+                <h2 className={'page-title'}>Contact me</h2>
+                <ContactForm/>
+                {/*<div><b>Instagram: </b><a href={instagram}>@maxgeorgievsky</a></div>*/}
+                {/*<div><b>Instagram: </b><a href={'tel:' + phone}>{phone}</a></div>*/}
+                {/*<div><b>Instagram: </b><a href={'mailto:' + email}>{email}</a></div>*/}
+            </Layout.Page>
         </Layout>
     )
 }

@@ -39,4 +39,12 @@ const Content = ({children}) => {
     )
 }
 
+Layout.Page = ({children, flex}) => {
+    return (
+        <div className={classes.page} style={{display: flex ? 'flex' : 'block'}}>
+            {children}
+        </div>
+    )
+}
+
 export default Layout

@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router'
 import Layout from '../../components/Layout'
+import Gallery from '../../components/Gallery'
 
 const Paintings = ({paintings}) => {
     const router = useRouter()
@@ -7,11 +8,7 @@ const Paintings = ({paintings}) => {
     return (
         <Layout title={router.query.year}>
             <div>
-                {paintings.map(painting => <div key={painting.id}>
-                    <h1>{painting.title}</h1>
-                    <p>{painting.year}</p>
-                    <img src={'http://localhost:1337' + painting.photo[0].formats.thumbnail.url} alt=""/>
-                </div>)}
+                <Gallery paintings={paintings} columnsNumber={4}/>
             </div>
         </Layout>
     )
