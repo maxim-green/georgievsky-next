@@ -27,7 +27,8 @@ const Index = ({paintings}) => {// todo: extract carousel to separate component
 }
 
 export async function getServerSideProps(ctx) {
-    const res = await fetch('http://localhost:1337/categories?title=Paintings')
+    console.log(process.env.API_BASE_URL)
+    const res = await fetch(`${process.env.API_BASE_URL}/categories?title=Paintings`)
     const categories = await res.json()
     const paintings = categories[0].products.filter(painting => painting.quantity > 0)
 

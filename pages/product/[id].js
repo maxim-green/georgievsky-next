@@ -34,7 +34,7 @@ const Product = ({title, description, year, width, height, medium, surface, phot
 }
 
 export async function getServerSideProps(ctx) {
-    const res = await fetch(`http://localhost:1337/products/${ctx.query.id}`)
+    const res = await fetch(`${process.env.API_BASE_URL}/products/${ctx.query.id}`)
     const product = await res.json()
 
     return {

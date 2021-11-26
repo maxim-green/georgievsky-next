@@ -1,7 +1,7 @@
 export default async function telegramMessage(req, res) {
     try {
-        const token = '2104347668:AAF45IdxUvqE5y0JwRuwtBY0w9z9QDvSEHE'
-        const chadId = '322590362'
+        const token = process.env.TG_BOT_TOKEN
+        const chadId = process.env.TG_CHAT_ID
 
         const {name, email, message} = req.body
         const tgMessage = `Сообщение от клиента\nИмя: ${name}\nE-mail: ${email}\nСообщение: ${message}`

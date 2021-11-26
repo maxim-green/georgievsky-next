@@ -2,7 +2,7 @@ import classes from '../styles/ContactForm.module.scss'
 
 export default function ContactForm() {
     return (
-        <form action={'http://localhost:3000/api/tg-message'} method={'POST'} className={classes.form}>
+        <form action={process.env.NEXT_PUBLIC_TG_URL} method={'POST'} className={classes.form}>
             <label className={classes.item}>
                 <div className={classes.label}>Your name:</div>
                 <input className={classes.inputText} type="text" name={'name'} required/>

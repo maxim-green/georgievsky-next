@@ -24,7 +24,7 @@ const About = ({text, photo}) => {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch('http://localhost:1337/about')
+    const res = await fetch(`${process.env.API_BASE_URL}/about`)
     const about = await res.json()
 
     return {
