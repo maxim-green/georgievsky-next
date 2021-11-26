@@ -15,7 +15,7 @@ const Paintings = ({paintings}) => {
 }
 
 export async function getServerSideProps(ctx) {
-    const res = await fetch(`${process.env.API_BASE_URL}categories?title=Paintings`)
+    const res = await fetch(`${process.env.API_BASE_URL}/categories?title=Paintings`)
     const categories = await res.json()
     const paintings = categories[0].products.filter(painting => painting.year === parseInt(ctx.query.year))
 
