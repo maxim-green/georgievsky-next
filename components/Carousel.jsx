@@ -7,14 +7,15 @@ export default function Carousel({children}) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {loop: true, align: 'center', speed: 7},
         [Autoplay({delay: 5000})])
+    emblaRef.displayName = 'emblaCarousel'
 
     const scrollPrev = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev()
-    })
+    },[emblaApi])
 
     const scrollNext = useCallback(() => {
         if (emblaApi) emblaApi.scrollNext()
-    })
+    },[emblaApi])
 
     return (
         <div className={classes.embla} ref={emblaRef}>
@@ -36,3 +37,4 @@ Carousel.Slide = ({children}) => {
         </div>
     )
 }
+Carousel.Slide.displayName = 'Carousel.Slide'

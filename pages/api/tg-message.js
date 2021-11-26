@@ -1,4 +1,4 @@
-export default async function (req, res) {
+export default async function telegramMessage(req, res) {
     try {
         const token = '2104347668:AAF45IdxUvqE5y0JwRuwtBY0w9z9QDvSEHE'
         const chadId = '322590362'

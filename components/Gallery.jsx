@@ -1,5 +1,6 @@
 import classes from '../styles/Gallery.module.scss'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Gallery({paintings, columnsNumber}) {
     const columns = []
@@ -23,12 +24,18 @@ Gallery.Column = ({children}) => {
         </div>
     )
 }
+Gallery.Column.displayName = 'Gallery.Column'
 
 Gallery.Item = ({painting}) => {
     return (
         <Link href={`/product/${painting.id}`}>
             <a className={classes.item}>
-                <img src={'http://localhost:1337' + painting.photo[0].formats.small.url} alt=""/>
+                <Image
+                    src={'http://localhost:1337' + painting.photo[0].formats.small.url}
+                    width={painting.photo[0].formats.small.width}
+                    height={painting.photo[0].formats.small.height}
+                    alt=""
+                />
                 <h2>{painting.title}</h2>
                 <p className={classes.productInfo}>{painting.year}</p>
                 <p className={classes.productInfo}>{painting.width}x{painting.height} cm</p>
@@ -37,3 +44,4 @@ Gallery.Item = ({painting}) => {
         </Link>
     )
 }
+Gallery.Item.displayName = 'Gallery.Item'

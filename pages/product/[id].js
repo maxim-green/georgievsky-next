@@ -1,10 +1,18 @@
 import Layout from '../../components/Layout'
+import Image from 'next/image'
 
 const Product = ({title, description, year, width, height, medium, surface, photo}) => {
     return (
         <Layout title={title}>
             <Layout.Page flex>
-                <img style={{ maxWidth: '600px', marginRight: '45px'}} src={'http://localhost:1337' + photo} alt=""/>
+                <div style={{ marginRight: '45px'}}>
+                    <Image
+                        width={photo.width}
+                        height={photo.height}
+                        src={'http://localhost:1337' + photo.url}
+                        alt=""
+                    />
+                </div>
                 <div style={{ maxWidth: '400px'}}>
                     <h2 className={'page-title'}>{title}</h2>
                     <p className={'text-info'}>
@@ -38,7 +46,7 @@ export async function getServerSideProps(ctx) {
             height: product.height,
             medium: product.medium,
             surface: product.surface,
-            photo: product.photo[0].formats.large.url}
+            photo: product.photo[0].formats.medium}
     }
 }
 

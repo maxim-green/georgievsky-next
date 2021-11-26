@@ -2,6 +2,7 @@ import Layout from '../components/Layout'
 import Link from 'next/link'
 import Carousel from '../components/Carousel'
 import classes from '../styles/Index.module.scss'
+import Image from 'next/image'
 
 const Index = ({paintings}) => {// todo: extract carousel to separate component
     return (
@@ -9,8 +10,15 @@ const Index = ({paintings}) => {// todo: extract carousel to separate component
             <Carousel>
                 {paintings.map(painting =>
                     <Carousel.Slide key={painting.id} className={'embla__slide'}>
-                            <img className={classes.slideImg} src={'http://localhost:1337' + painting.photo[0].formats.medium.url} alt=""/>
-                            <Link href={`/product/${painting.id}`}><a className={classes.slideLink}>See details</a></Link>
+                        <div style={{marginBottom: '30px'}}>
+                            <Image
+                                   src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
+                                   width={painting.photo[0].formats.medium.width}
+                                   height={painting.photo[0].formats.medium.height}
+                                   alt=""
+                            />
+                        </div>
+                        <Link href={`/product/${painting.id}`}><a className={classes.slideLink}>See details</a></Link>
                     </Carousel.Slide>
                 )}
             </Carousel>

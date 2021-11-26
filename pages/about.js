@@ -1,10 +1,19 @@
 import Layout from '../components/Layout'
+import Image from 'next/image'
 
 const About = ({text, photo}) => {
     return (
         <Layout title={'About'}>
             <Layout.Page flex>
-                <img style={{ maxWidth: '600px', marginRight: '45px'}} src={'http://localhost:1337' + photo} alt=""/>
+                <div style={{ marginRight: '45px'}}>
+                    <Image
+                        src={'http://localhost:1337' + photo.url}
+                        width={photo.width}
+                        height={photo.height}
+                        alt=""
+                    />
+                </div>
+
                 <div style={{ maxWidth: '400px'}}>
                     <h2 className={'page-title'}>About me</h2>
                     <p className={'text'}>{text}</p>
@@ -19,7 +28,7 @@ export async function getServerSideProps() {
     const about = await res.json()
 
     return {
-        props: {text: about.text, photo: about.photo[0].url}
+        props: {text: about.text, photo: about.photo[0]}
     }
 }
 

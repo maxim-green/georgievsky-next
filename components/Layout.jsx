@@ -46,3 +46,4 @@ Layout.Page = ({children, flex}) => {
         </div>
     )
 }
+Layout.Page.displayName = 'Layout.Page'
