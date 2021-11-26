@@ -3,7 +3,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import {useCallback} from 'react'
 import classes from '../styles/Carousel.module.scss'
 
-const Carousel = ({children}) => {
+export default function Carousel({children}) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {loop: true, align: 'center', speed: 7},
         [Autoplay({delay: 5000})])
@@ -21,8 +21,8 @@ const Carousel = ({children}) => {
             <div className={classes.emblaContainer}>
                 {children}
             </div>
-            <button class={classes.emblaPrev} onClick={scrollPrev}/>
-            <button class={classes.emblaNext} onClick={scrollNext}/>
+            <button className={classes.emblaPrev} onClick={scrollPrev}/>
+            <button className={classes.emblaNext} onClick={scrollNext}/>
         </div>
     )
 }
@@ -36,5 +36,3 @@ Carousel.Slide = ({children}) => {
         </div>
     )
 }
-
-export default Carousel

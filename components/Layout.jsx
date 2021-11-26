@@ -3,7 +3,7 @@ import classes from '../styles/AppLayout.module.scss'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
-const Layout = ({children, title}) => {
+export default function Layout({children, title}) {
     return (
         <div className={classes.appLayout}>
             <Head>
@@ -46,5 +46,3 @@ Layout.Page = ({children, flex}) => {
         </div>
     )
 }
-
-export default Layout

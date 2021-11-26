@@ -1,6 +1,6 @@
 import classes from '../styles/ContactForm.module.scss'
 
-const ContactForm = () => {
+export default function ContactForm() {
     return (
         <form action={'http://localhost:3000/api/tg-message'} method={'POST'} className={classes.form}>
             <label className={classes.item}>
@@ -19,5 +19,3 @@ const ContactForm = () => {
         </form>
     )
 }
-
-export default ContactForm

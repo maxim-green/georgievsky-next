@@ -1,7 +1,7 @@
 import classes from '../styles/Gallery.module.scss'
 import Link from 'next/link'
 
-const Gallery = ({paintings, columnsNumber}) => {
+export default function Gallery({paintings, columnsNumber}) {
     const columns = []
     for (let i = 0; i < 4; i++) {
         columns.push(<Gallery.Column key={i}>
@@ -37,5 +37,3 @@ Gallery.Item = ({painting}) => {
         </Link>
     )
 }
-
-export default Gallery
