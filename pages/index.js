@@ -25,6 +25,7 @@ const Index = ({paintings}) => {// todo: extract carousel to separate component
         </Layout>
     )
 }
+//test
 
 export async function getServerSideProps(ctx) {
     console.log(process.env.API_BASE_URL)
