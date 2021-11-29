@@ -28,4 +28,4 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-          script: cd /home/georgievsky/georgievsky-next && yarn install && yarn build && yarn start
+          script: cd /home/georgievsky && ./stop-next && cd ./georgievsky-next && yarn install && yarn build && cd /.. && ./start-next
