@@ -7,28 +7,45 @@ import Image from 'next/image'
 const Index = ({paintings}) => {// todo: extract carousel to separate component
     return (
         <Layout title={'Home'}>
-            <Carousel>
+            <div className={classes.carousel}>
+                <Carousel>
+                    {paintings.map(painting =>
+                        <Carousel.Slide key={painting.id} height={painting.photo[0].formats.medium.height}>
+                            <div style={{marginBottom: '30px'}}>
+                                <Image
+                                    src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
+                                    width={painting.photo[0].formats.medium.width}
+                                    height={painting.photo[0].formats.medium.height}
+                                    alt=""
+                                />
+                            </div>
+                            <Link href={`/product/${painting.id}`}><a className={classes.slideLink}>See details</a></Link>
+                        </Carousel.Slide>
+                    )}
+                </Carousel>
+            </div>
+            <div className={classes.paintings}>
                 {paintings.map(painting =>
-                    <Carousel.Slide key={painting.id} className={'embla__slide'}>
-                        <div style={{marginBottom: '30px'}}>
+                    <div className={classes.painting}>
+                        <Link href={`/product/${painting.id}`}>
+                        <div style={{marginBottom: '5px'}}>
                             <Image
-                                   src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
-                                   width={painting.photo[0].formats.medium.width}
-                                   height={painting.photo[0].formats.medium.height}
-                                   alt=""
+                                src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
+                                width={painting.photo[0].formats.medium.width}
+                                height={painting.photo[0].formats.medium.height}
+                                alt=""
                             />
                         </div>
+                        </Link>
                         <Link href={`/product/${painting.id}`}><a className={classes.slideLink}>See details</a></Link>
-                    </Carousel.Slide>
+                    </div>
                 )}
-            </Carousel>
+            </div>
         </Layout>
     )
 }
-//test
 
 export async function getServerSideProps(ctx) {
-    console.log(process.env.API_BASE_URL)
     const res = await fetch(`${process.env.API_BASE_URL}/categories?title=Paintings`)
     const categories = await res.json()
     const paintings = categories[0].products.filter(painting => painting.quantity > 0)

@@ -2,6 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import {useCallback} from 'react'
 import classes from '../styles/Carousel.module.scss'
+import {ampFirstEntryNamesMap} from 'next/dist/build/webpack/plugins/next-drop-client-page-plugin'
 
 export default function Carousel({children}) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -11,11 +12,11 @@ export default function Carousel({children}) {
 
     const scrollPrev = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev()
-    },[emblaApi])
+    }, [emblaApi])
 
     const scrollNext = useCallback(() => {
         if (emblaApi) emblaApi.scrollNext()
-    },[emblaApi])
+    }, [emblaApi])
 
     return (
         <div className={classes.embla} ref={emblaRef}>
@@ -30,7 +31,7 @@ export default function Carousel({children}) {
 
 Carousel.Slide = ({children}) => {
     return (
-        <div className={classes.emblaSlide}>
+        <div className={classes.emblaSlide} >
             <div className={classes.emblaSlideContent}>
                 {children}
             </div>

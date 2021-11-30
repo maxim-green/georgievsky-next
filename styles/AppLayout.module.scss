@@ -1,4 +1,5 @@
 $sidebar-width: 290px;
+$sidebar-width-small: 200px;
 
 .appLayout {
   display: flex;
@@ -13,6 +14,10 @@ $sidebar-width: 290px;
   width: $sidebar-width;
   height: 100vh;
   padding: 40px;
+  z-index: 10;
+  ul {
+    background-color: white;
+  }
   li {
     margin-bottom: 18px;
     font-size: 12px;
@@ -32,12 +37,19 @@ $sidebar-width: 290px;
   .language {
     margin-top: auto;
   }
+  .menuButton {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 18px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
 }
 
 .content {
   margin-left: $sidebar-width;
   padding: 40px 0 40px 0;
-  max-width: calc(100vw - 480px);
 }
 
 .page {
@@ -45,6 +57,57 @@ $sidebar-width: 290px;
   padding-top: 85px;
 }
 
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */}
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }
 
+
+@media (max-width:1281px) { /* hi-res laptops and desktops */
+  .navigation {
+    width: $sidebar-width-small;
+    padding: 20px;
+  }
+  .content {
+    margin-left: $sidebar-width-small;
+  }
+}
+@media (max-width:1025px) { /* big landscape tablets, laptops, and desktops */
+  .content {
+    margin-left: 0;
+    margin-top: 70px;
+    padding: 0;
+    width: 100vw;
+  }
+  .navigation {
+    height: 70px;
+    width: 100vw;
+    flex-direction: row;
+    background-color: white;
+    ul {
+      position: absolute;
+      left: 0;
+      top: 70px;
+      height: calc(100vh - 70px);
+      padding: 20px;
+      transform: translateX(-100%);
+      transition: .3s;
+      &.active {
+        transform: translateX(0);
+      }
+    }
+    .logo {
+      margin-bottom: 0;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.07em;
+    }
+    .language {
+      margin: 0;
+    }
+  }
+}
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+}
 
 
