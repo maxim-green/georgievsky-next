@@ -2,11 +2,10 @@ import {useRouter} from 'next/router'
 import Layout from '../../components/Layout'
 import Gallery from '../../components/Gallery'
 
-const Paintings = ({paintings}) => {
+const Paintings = ({paintings, contacts}) => {
     const router = useRouter()
-
     return (
-        <Layout title={router.query.year}>
+        <Layout title={router.query.year} contacts={contacts}>
             <div>
                 <Gallery paintings={paintings} columnsNumber={4}/>
             </div>

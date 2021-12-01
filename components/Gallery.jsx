@@ -1,8 +1,15 @@
 import classes from '../styles/Gallery.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
+import useMediaQuery from "../hooks/useMediaQuery";
 
-export default function Gallery({paintings, columnsNumber}) {
+export default function Gallery({paintings}) {
+
+    let columnsNumber = 4
+    if (useMediaQuery(1281)) columnsNumber = 3
+    if (useMediaQuery(600)) columnsNumber = 2
+    if (useMediaQuery(320)) columnsNumber = 1
+
     const columns = []
     for (let i = 0; i < 4; i++) {
         columns.push(<Gallery.Column key={i}>

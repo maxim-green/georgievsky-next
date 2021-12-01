@@ -19,10 +19,15 @@ $sidebar-width-small: 200px;
     background-color: white;
   }
   li {
-    margin-bottom: 18px;
-    font-size: 12px;
+    margin-bottom: 24px;
+    font-size: 16px;
     line-height: 12px;
     letter-spacing: 0.14em;
+    opacity: .7;
+    transition: .3s;
+    &:hover {
+      opacity: 1;
+    }
   }
   a.active {
     font-weight: 700;
@@ -38,12 +43,15 @@ $sidebar-width-small: 200px;
     margin-top: auto;
   }
   .menuButton {
-    width: 20px;
-    height: 20px;
+    display: none;
+    width: 24px;
+    height: 24px;
     font-size: 14px;
     line-height: 18px;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 20px;
+    background: none;
+    border: none;
   }
 }
 
@@ -81,8 +89,10 @@ $sidebar-width-small: 200px;
     height: 70px;
     width: 100vw;
     flex-direction: row;
+    align-items: center;
     background-color: white;
     ul {
+      width: 200px;
       position: absolute;
       left: 0;
       top: 70px;
@@ -94,6 +104,12 @@ $sidebar-width-small: 200px;
         transform: translateX(0);
       }
     }
+    li {
+      margin-bottom: 22px;
+      font-size: 18px;
+      line-height: 18px;
+      letter-spacing: 0.07em;
+    }
     .logo {
       margin-bottom: 0;
       font-weight: 700;
@@ -103,7 +119,14 @@ $sidebar-width-small: 200px;
     }
     .language {
       margin: 0;
+      margin-left: auto;
     }
+    .menuButton {
+      display: block;
+    }
+  }
+  .page {
+    padding: 0 20px;
   }
 }
 @media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */

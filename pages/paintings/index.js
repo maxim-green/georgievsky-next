@@ -1,9 +1,9 @@
 import Layout from '../../components/Layout'
 import Gallery from '../../components/Gallery'
 
-const Paintings = ({paintings}) => {
+const Paintings = ({paintings, contacts}) => {
     return (
-        <Layout title={'Paintings'}>
+        <Layout title={'Paintings'} contacts={contacts}>
             <Gallery paintings={paintings} columnsNumber={4}/>
         </Layout>
     )

@@ -1,11 +1,12 @@
 import Layout from '../components/Layout'
 import Image from 'next/image'
+import useMediaQuery from "../hooks/useMediaQuery";
 
-const About = ({text, photo}) => {
+const About = ({text, photo, contacts}) => {
     return (
-        <Layout title={'About'}>
-            <Layout.Page flex>
-                <div style={{ marginRight: '45px'}}>
+        <Layout title={'About'} contacts={contacts}>
+            <Layout.Page flex={!useMediaQuery(801)}>
+                <div style={{ marginRight: !useMediaQuery(801) ? '45px' : '0px'}}>
                     <Image
                         src={'http://localhost:1337' + photo.url}
                         width={photo.width}

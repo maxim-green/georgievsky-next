@@ -4,9 +4,9 @@ import Carousel from '../components/Carousel'
 import classes from '../styles/Index.module.scss'
 import Image from 'next/image'
 
-const Index = ({paintings}) => {// todo: extract carousel to separate component
+const Index = ({paintings, contacts}) => {// todo: extract carousel to separate component
     return (
-        <Layout title={'Home'}>
+        <Layout title={'Home'} contacts={contacts}>
             <div className={classes.carousel}>
                 <Carousel>
                     {paintings.map(painting =>

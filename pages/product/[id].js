@@ -1,11 +1,12 @@
 import Layout from '../../components/Layout'
 import Image from 'next/image'
+import useMediaQuery from "../../hooks/useMediaQuery";
 
-const Product = ({title, description, year, width, height, medium, surface, photo}) => {
+const Product = ({title, description, year, width, height, medium, surface, photo, contacts}) => {
     return (
-        <Layout title={title}>
-            <Layout.Page flex>
-                <div style={{ marginRight: '45px'}}>
+        <Layout title={title} contacts={contacts}>
+            <Layout.Page flex={!useMediaQuery(801)}>
+                <div style={{ marginRight: !useMediaQuery(801) ? '45px' : '0px'}}>
                     <Image
                         width={photo.width}
                         height={photo.height}

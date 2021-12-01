@@ -29,16 +29,16 @@
 }
 
 .inputText, .button {
-  height: 32px;
+  height: 44px;
 }
 
 .inputTextarea {
-  height: 96px;
+  height: 132px;
   resize: none;
 }
 
 .button {
-  width: 100px;
+  width: 120px;
   color: white;
   background-color: #666666;
   border: none;
@@ -47,5 +47,11 @@
   transition: .3s;
   &:hover {
     background-color: black;
+  }
+}
+
+@media (max-width:480px)  { /* smartphones, Android phones, landscape iPhone */
+  .form {
+    width: 100%;
   }
 }
