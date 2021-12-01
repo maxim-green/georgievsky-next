@@ -12,4 +12,10 @@ const Contact = ({contacts}) => {
     )
 }
 
+// this is needed to resolve process.env.API_BASE_URL
+// otherwise it will be undefined when navigating to the page via <Link/>
+export async function getServerSideProps() {
+    return {props: {}}
+}
+
 export default Contact
