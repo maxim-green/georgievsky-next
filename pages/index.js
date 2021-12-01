@@ -26,16 +26,18 @@ const Index = ({paintings, contacts}) => {// todo: extract carousel to separate 
             </div>
             <div className={classes.paintings}>
                 {paintings.map(painting =>
-                    <div className={classes.painting}>
+                    <div className={classes.painting} key={painting.id}>
                         <Link href={`/product/${painting.id}`}>
-                        <div style={{marginBottom: '5px'}}>
-                            <Image
-                                src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
-                                width={painting.photo[0].formats.medium.width}
-                                height={painting.photo[0].formats.medium.height}
-                                alt=""
-                            />
-                        </div>
+                            <a>
+                                <div style={{marginBottom: '5px'}}>
+                                    <Image
+                                        src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
+                                        width={painting.photo[0].formats.medium.width}
+                                        height={painting.photo[0].formats.medium.height}
+                                        alt=""
+                                    />
+                                </div>
+                            </a>
                         </Link>
                         <Link href={`/product/${painting.id}`}><a className={classes.slideLink}>See details</a></Link>
                     </div>
