@@ -11,7 +11,6 @@ export default function Layout({children, title, contacts}) {
     return (
         <div className={classes.appLayout}>
             <Head>
-                <link rel="shortcut icon" href={favicon} />
                 <title>{title} | Georgievsky</title>
             </Head>
             <Navigation className={classes.navigation} instagram={contacts.instagram}/>
