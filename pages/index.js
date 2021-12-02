@@ -31,7 +31,7 @@ const Index = ({paintings, contacts}) => {// todo: extract carousel to separate 
                             <a>
                                 <div style={{marginBottom: '5px'}}>
                                     <Image
-                                        src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
+                                        src={process.env.NEXT_PUBLIC_API_BASE_URL + painting.photo[0].formats.medium.url}
                                         width={painting.photo[0].formats.medium.width}
                                         height={painting.photo[0].formats.medium.height}
                                         alt=""
