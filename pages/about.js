@@ -16,7 +16,7 @@ const About = ({text, photo, contacts}) => {
                 </div>
 
                 <div style={{ maxWidth: '400px'}}>
-                    <h2 className={'page-title'}>About me TEST</h2>
+                    <h2 className={'page-title'}>About me TEST2</h2>
                     <p className={'text'}>{text}</p>
                 </div>
             </Layout.Page>
