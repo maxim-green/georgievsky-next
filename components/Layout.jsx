@@ -4,12 +4,14 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
 import {BsInstagram, BsList, BsXLg} from 'react-icons/bs'
+import favicon from '../public/favicon.svg'
 
 
 export default function Layout({children, title, contacts}) {
     return (
         <div className={classes.appLayout}>
             <Head>
+                <link rel="shortcut icon" href={favicon} />
                 <title>{title} | Georgievsky</title>
             </Head>
             <Navigation className={classes.navigation} instagram={contacts.instagram}/>
