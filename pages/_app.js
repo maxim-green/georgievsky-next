@@ -5,7 +5,7 @@ export default function App({Component, pageProps, contacts}) {
 }
 
 App.getInitialProps = async (ctx) => {
-    const res = await fetch(`${process.env.API_BASE_URL}/contact`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/contact`)
     const contacts = await res.json()
     return {
         contacts

@@ -13,7 +13,7 @@ const Index = ({paintings, contacts}) => {// todo: extract carousel to separate 
                         <Carousel.Slide key={painting.id} height={painting.photo[0].formats.medium.height}>
                             <div style={{marginBottom: '30px'}}>
                                 <Image
-                                    src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
+                                    src={process.env.NEXT_PUBLIC_API_BASE_URL + painting.photo[0].formats.medium.url}
                                     width={painting.photo[0].formats.medium.width}
                                     height={painting.photo[0].formats.medium.height}
                                     alt=""
@@ -48,7 +48,7 @@ const Index = ({paintings, contacts}) => {// todo: extract carousel to separate 
 }
 
 export async function getServerSideProps(ctx) {
-    const res = await fetch(`${process.env.API_BASE_URL}/categories?title=Paintings`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/categories?title=Paintings`)
     const categories = await res.json()
     const paintings = categories[0].products.filter(painting => painting.quantity > 0)
 

@@ -8,7 +8,7 @@ const About = ({text, photo, contacts}) => {
             <Layout.Page flex={!useMediaQuery(801)}>
                 <div style={{ marginRight: !useMediaQuery(801) ? '45px' : '0px'}}>
                     <Image
-                        src={'http://localhost:1337' + photo.url}
+                        src={process.env.NEXT_PUBLIC_API_BASE_URL + photo.url}
                         width={photo.width}
                         height={photo.height}
                         alt=""
@@ -25,7 +25,7 @@ const About = ({text, photo, contacts}) => {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.API_BASE_URL}/about`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/about`)
     const about = await res.json()
 
     return {

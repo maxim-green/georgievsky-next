@@ -10,7 +10,7 @@ const Paintings = ({paintings, contacts}) => {
 }
 
 export async function getServerSideProps(ctx) {
-    const res = await fetch(`${process.env.API_BASE_URL}/categories?title=Paintings`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/categories?title=Paintings`)
     const categories = await res.json()
     const paintings = categories[0].products
 

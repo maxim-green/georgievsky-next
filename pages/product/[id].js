@@ -10,7 +10,7 @@ const Product = ({title, description, year, width, height, medium, surface, phot
                     <Image
                         width={photo.width}
                         height={photo.height}
-                        src={'http://localhost:1337' + photo.url}
+                        src={process.env.NEXT_PUBLIC_API_BASE_URL + photo.url}
                         alt=""
                     />
                 </div>
@@ -35,7 +35,7 @@ const Product = ({title, description, year, width, height, medium, surface, phot
 }
 
 export async function getServerSideProps(ctx) {
-    const res = await fetch(`${process.env.API_BASE_URL}/products/${ctx.query.id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/${ctx.query.id}`)
     const product = await res.json()
 
     return {
