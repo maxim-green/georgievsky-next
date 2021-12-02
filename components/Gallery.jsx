@@ -38,7 +38,7 @@ Gallery.Item = ({painting}) => {
         <Link href={`/product/${painting.id}`}>
             <a className={classes.item}>
                 <Image
-                    src={'http://localhost:1337' + painting.photo[0].formats.small.url}
+                    src={process.env.NEXT_PUBLIC_API_BASE_URL + painting.photo[0].formats.small.url}
                     width={painting.photo[0].formats.small.width}
                     height={painting.photo[0].formats.small.height}
                     alt=""
