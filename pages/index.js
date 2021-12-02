@@ -13,7 +13,7 @@ const Index = ({paintings, contacts}) => {// todo: extract carousel to separate 
                         <Carousel.Slide key={painting.id} height={painting.photo[0].formats.medium.height}>
                             <div style={{marginBottom: '30px'}}>
                                 <Image
-                                    src={'http://localhost:1337/' + painting.photo[0].formats.medium.url}
+                                    src={'http://localhost:1337' + painting.photo[0].formats.medium.url}
                                     width={painting.photo[0].formats.medium.width}
                                     height={painting.photo[0].formats.medium.height}
                                     alt=""
