@@ -29,7 +29,7 @@ export async function getServerSideProps() {
     const about = await res.json()
 
     return {
-        props: {text: about.text, photo: about.photo[0]}
+        props: {text: about.text, photo: about.photo[0].formats.small}
     }
 }
 
