@@ -50,7 +50,7 @@ const Index = ({paintings, contacts}) => {// todo: extract carousel to separate 
 export async function getServerSideProps(ctx) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/categories?title=Paintings`)
     const categories = await res.json()
-    const paintings = categories[0].products.filter(painting => painting.quantity > 0 && painting.featured)
+    const paintings = categories[0].products.filter(painting => painting.quantity > 0 && painting.featured).reverse()
 
     return {
         props: {paintings}
