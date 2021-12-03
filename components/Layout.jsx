@@ -39,14 +39,11 @@ const Navigation = ({instagram}) => {
             <ul className={menuActive ? classes.active : ''}>
                 <li><Link href={'/paintings/2021'}><a
                     className={router.asPath === '/paintings/2021' ? classes.active : ''}>2021</a></Link></li>
-                <li><Link href={'/paintings/2020'}><a
-                    className={router.asPath === '/paintings/2020' ? classes.active : ''}>2020</a></Link></li>
                 <li><Link href={'/about'}><a
                     className={router.asPath === '/about' ? classes.active : ''}>About</a></Link></li>
                 <li><Link href={'/contact'}><a
                     className={router.asPath === '/contact' ? classes.active : ''}>Contact</a></Link></li>
-                <li><a href={`https://www.instagram.com/${instagram}`} target={'_blank'} rel={'noreferrer'}
-                    className={router.asPath === '/contact' ? classes.active : ''}>
+                <li><a href={`https://www.instagram.com/${instagram}`} target={'_blank'} rel={'noreferrer'}>
                     <BsInstagram style={{width: '20px', height: '20px'}}/>
                 </a></li>
             </ul>
