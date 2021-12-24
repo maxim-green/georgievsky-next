@@ -6,9 +6,20 @@
 
 .item {
   margin-bottom: 16px;
+  &.error {
+    color: red;
+    .inputText, .inputTextarea {
+      border: 2px solid red;
+    }
+    .errorMessage {
+      color: red;
+    }
+  }
 }
 
 .label {
+  display: flex;
+  justify-content: space-between;
   font-size: 12px;
   line-height: 12px;
   letter-spacing: 0.08em;
