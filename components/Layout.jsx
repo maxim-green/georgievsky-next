@@ -12,6 +12,7 @@ export default function Layout({children, title, contacts}) {
         <div className={classes.appLayout}>
             <Head>
                 <title>{title} | Georgievsky</title>
+
             </Head>
             <Navigation className={classes.navigation} instagram={contacts.instagram}/>
             <Content>{children}</Content>
